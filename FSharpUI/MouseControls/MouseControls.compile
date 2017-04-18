@@ -1,0 +1,13 @@
+<Project>
+  <PropertyGroup>
+    <Root>MouseControls</Root>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(Root)/Common.fs" />
+    <Compile Include="$(Root)/ButtonControls.fs" />
+    <Compile Include="$(Root)/ComboBoxControls.fs" />
+    <Compile Include="$(Root)/MenuControls.fs" />
+    <Compile Include="$(Root)/PickerControls.fs" />
+    <Compile Include="$(Root)/SliderSpinBoxControls.fs" />
+  </ItemGroup>
+</Project>

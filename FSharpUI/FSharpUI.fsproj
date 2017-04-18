@@ -1,0 +1,26 @@
+﻿<Project Sdk="FSharp.NET.Sdk;Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard1.6</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="Internal/Events.fs" />
+    <Compile Include="Internal/Reflection.fs" />
+    <Compile Include="Helpers.fs" />
+  </ItemGroup>
+
+  <Import Project="./MouseControls/MouseControls.compile" />
+
+  <ItemGroup>
+    <Compile Include="Application.fs" />
+    <Compile Include="Control.fs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FSharp.Core" Version="4.1.*" />
+    <PackageReference Include="FSharp.NET.Sdk" Version="1.0.*" PrivateAssets="All" />
+    <PackageReference Include="DevZH.UI" Version="1.0.0-alpha-2801-pre1" />
+  </ItemGroup>
+
+</Project>
