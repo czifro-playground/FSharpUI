@@ -20,9 +20,6 @@ namespace FSharpUI.MouseControls
           action = None
         }
 
-    let createMenu name =
-      new Menu(name)
-
     let addMenuItem (config:MenuItemConfig) (menu:Menu) =
       let mType = defaultArg config.menuItemType MenuItemTypes.Common
       let action =

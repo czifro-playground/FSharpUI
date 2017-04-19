@@ -10,6 +10,12 @@ namespace FSharpUI.Internal.Reflection
     let getType (o:obj) =
       o.GetType()
 
+    let inline getInstance<'a> types args =
+      let t = typeof<'a>
+      let ti = t.GetTypeInfo()
+      let ctor = ti.GetConstructor(types)
+      ctor.Invoke(args) :?> 'a
+
     let getProperty (name:string) (o:obj) =
       let t = getType o
       t.GetRuntimeProperty(name)
@@ -35,3 +41,8 @@ namespace FSharpUI.Internal.Reflection
       let e = getEvent name o
       e.AddEventHandler(o,onEvent)
       o
+
+    let tryTupleToArray t =
+      if FSharp.Reflection.FSharpType.IsTuple(t.GetType()) then
+        Some (FSharp.Reflection.FSharpValue.GetTupleFields t)
+      else None

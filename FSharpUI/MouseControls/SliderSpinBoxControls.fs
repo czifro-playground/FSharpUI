@@ -6,11 +6,6 @@ namespace FSharpUI.MouseControls
   [<AutoOpen>]
   module Slider =
 
-    // adding to ValueChanged is handled in Shared module
-
-    let createSlider min max =
-      new Slider(min,max)
-
     let sliderValue (slider:Slider) =
       slider.Value
 
