@@ -31,7 +31,7 @@ namespace FSharpUI
         match o with
         | :? Button | :? CheckBox | :? MenuItem -> "Click"
         | :? ComboBox | :? RadioButtonList -> "Selected"
-        | :? EditableComboBox -> "TextChanged"
+        | :? EditableComboBox | :? EntryBase -> "TextChanged"
         | :? Slider | :? SpinBox -> "ValueChanged"
         | :? ColorPicker -> "ColorChanged"
         | :? FontPicker -> "FontChanged"

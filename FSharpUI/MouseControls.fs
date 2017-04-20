@@ -1,7 +1,8 @@
 namespace FSharpUI.MouseControls
 
+  open System
   open DevZH.UI
-  open FSharpUI.Internal.Events
+  open FSharpUI
 
   [<AutoOpen>]
   module Menu =
@@ -37,3 +38,20 @@ namespace FSharpUI.MouseControls
 
     let items (menu:Menu) =
       menu.Items
+
+  [<AutoOpen>]
+  module ColorPicker =
+
+    let color (colorPicker:ColorPicker) =
+      colorPicker.Color
+
+    let setColor color (colorPicker:ColorPicker) =
+      colorPicker.Color <- color
+      colorPicker
+
+
+  [<AutoOpen>]
+  module FontPicker =
+
+    let font (fontPicker:FontPicker) =
+      fontPicker.Font
