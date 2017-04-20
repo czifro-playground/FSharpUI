@@ -7,20 +7,14 @@ namespace FSharpUI
   open FSharpUI.Internal.Reflection
 
   module internal SharedInternal =
-    let indexTypes =
-      [| typeof<ComboBox>; typeof<RadioButtonList>; |]
+    let indexTypes = [| typeof<ComboBox>; typeof<RadioButtonList>; |]
     let textTypes =
       [| typeof<ButtonBase>; typeof<EntryBase>; 
         typeof<EditableComboBox>; typeof<MultilineEntry> |]
-    let valueTypes =
-      [| typeof<Slider>; typeof<SpinBox> |]
-    let checkedTypes =
-      [| typeof<CheckBox>; typeof<MenuItem> |]
-    let readOnlyTypes =
-      [| typeof<EntryBase>; typeof<MultilineEntry> |]
-
-    let appendTypes =
-      [| typeof<MultilineEntry> |]
+    let valueTypes = [| typeof<Slider>; typeof<SpinBox> |]
+    let checkedTypes = [| typeof<CheckBox>; typeof<MenuItem> |]
+    let readOnlyTypes = [| typeof<EntryBase>; typeof<MultilineEntry> |]
+    let appendTypes = [| typeof<MultilineEntry> |]
 
   [<AutoOpen>]
   module Shared =
