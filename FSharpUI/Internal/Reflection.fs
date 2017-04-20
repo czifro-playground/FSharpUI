@@ -42,7 +42,15 @@ namespace FSharpUI.Internal.Reflection
       e.AddEventHandler(o,onEvent)
       o
 
+    let isUnitOrNone v =
+      try
+        (getType v) |> ignore
+        false
+      with
+      | _ -> true
+
     let tryTupleToArray t =
-      if FSharp.Reflection.FSharpType.IsTuple(t.GetType()) then
+      if isUnitOrNone t then None
+      elif FSharp.Reflection.FSharpType.IsTuple(t.GetType()) then
         Some (FSharp.Reflection.FSharpValue.GetTupleFields t)
       else None

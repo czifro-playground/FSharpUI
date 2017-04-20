@@ -14,6 +14,7 @@
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.0.0" />
     <PackageReference Include="MSTest.TestAdapter" Version="1.1.11" />
     <PackageReference Include="MSTest.TestFramework" Version="1.1.11" />
+    <PackageReference Include="DevZH.UI" Version="1.0.0-alpha-2801-pre1" />
   </ItemGroup>
 
   <ItemGroup>

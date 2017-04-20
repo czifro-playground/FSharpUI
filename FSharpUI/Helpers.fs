@@ -13,20 +13,19 @@ namespace FSharpUI
     let applyTo<'b> (func:obj->obj) o =
       o |> (func >> cast<'b>)
 
-    let inline create<'a> (x:obj) =
+    let create<'a> (x:obj) =
       let argsOption = tryTupleToArray x
       let args =
         if argsOption.IsSome then argsOption.Value
+        elif isUnitOrNone x then [||]
         else [| x |]
       let argTypes =
-        args
-        |> Array.map(fun o ->
-          let t = o.GetType()
-          if t.Name.ToLower() = "unit" then typeof<Void> else t
-        )
+        if Array.isEmpty args then [| typeof<Void> |]
+        else args |> Array.map getType
+      printfn "%A %A" args argTypes
       getInstance<'a> argTypes args
 
-    let inline addOnEvent<'a when 'a :> EventArgs> onEvent (o:obj) =
+    let addOnEvent<'a when 'a :> EventArgs> onEvent (o:obj) =
       let e = IOnEvent<'a>(onEvent)
       let eventName =
         match o with
@@ -40,4 +39,3 @@ namespace FSharpUI
         | :? Control -> failwith "Type 'Control' has multiple events, cannot discriminate"
         | _ -> failwithf "Type '%s' is not supported" ((getType o).ToString())
       addEvent<'a> eventName o e
-      |> cast<'a>
